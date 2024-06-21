@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 789bc890-c19b-49dc-af2a-36cd80fe7f87
+      url: 'https://as-1714.quarto.pub/dementia'

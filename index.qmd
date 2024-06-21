@@ -2,14 +2,33 @@
 title: "Dementia"
 execute: 
   echo: false
+  warning: false
 ---
 
 ```{r}
 #| message: false
 library(tidyverse)
+library(dplyr)
 ```
 
 ```{r}
-d <- read_csv("data/dementia_patients_health_data.csv")
+d <- read_csv("dementia_patients_health_data.csv")
+```
+
+
+```{r}
+filtered_data <- d %>% select(Weight, Dementia)
+```
+
+
+```{r}
+filtered_data |> ggplot(data,mapping = aes(x = Weight, fill = as.factor(Dementia))) +
+  geom_histogram(alpha = 0.5) +
+  labs(title = "Density Plot of Weight by Dementia Status",
+       x = "Weight",
+       y = "Density",
+       fill = "Dementia Status",
+       color = "Dementia Status") +
+  theme_minimal()
 ```
 
